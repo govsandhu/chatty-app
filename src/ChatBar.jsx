@@ -10,15 +10,13 @@ checkCurrentUser () {
     return (
       <input className="chatbar-username" defaultValue={this.props.currentUser.name} />
     )
-    // this.props.currentUser.name
   } else {
     return (
       <input className="chatbar-username" placeholder="Annoymous" />
     )
-    // 'Annoymous'
   }
 }
-  // return the tag you want
+
   render() {
     return (
         <footer className="chatbar">
