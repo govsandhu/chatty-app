@@ -21,19 +21,30 @@ class App extends Component {
           username: 'Anonymous',
           content: 'No, I think you lost them. You lost your marbles Bob. You lost them for good.'
         }
-      ]
+      ],
+      webSocket: null
     }
-    this.addNewMessage = this.addNewMessage.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
+  }
+
+  sendMessage(message) {
+    const newMessage = {
+      type: 'message',
+      username: this.state.currentUser.name,
+      content: message.content
+    };
+    this.state.webSocket.send(JSON.stringify(newMessage));
   }
 
   componentDidMount() {
-    this.webSocket = new WebSocket('ws://localhost:3001')
-
-    this.webSocket.onopen = function (event) {
-      console.log('Client connected')
+    const webSocket = new WebSocket('ws://localhost:3001')
+    webSocket.onopen = function () {
+      console.log('Connected to server')
     }
+    this.setState({webSocket})
+
     
-    console.log('Connected to server')
+
     // console.log('componentDidMount <App />');
     // setTimeout(() => {
     //   console.log('Simulating incoming message');
@@ -46,10 +57,10 @@ class App extends Component {
     // }, 3000);
   }
 
-  addNewMessage (message) {
-    const messages = this.state.messages.concat(message) 
-    this.setState({messages: messages})
-  }
+  // addNewMessage (message) {
+  //   const messages = this.state.messages.concat(message) 
+  //   this.setState({messages: messages})
+  // }
 
   
 
@@ -62,7 +73,7 @@ class App extends Component {
           </a>
         </nav>
         <MessageList messages={this.state.messages}/>
-        <ChatBar currentUser={this.state.currentUser} newMessage={this.addNewMessage} />
+        <ChatBar currentUser={this.state.currentUser} newMessage={this.sendMessage} />
       </div>
     );
   }
