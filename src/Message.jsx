@@ -10,13 +10,14 @@ class Message extends Component {
     return (
       <div>
         <div className="message">
-          <span className="message-username">Anonymous1</span>
+          <span className="message-username">
+            { this.props.userName }
+          </span>
           <span className="message-content">
-            I won't be impressed with technology until I can download food.
+            { this.props.content }
           </span>
         </div>
         <div className="message system">
-          Anonymous1 changed their name to nomnom.
         </div>
       </div>
     );
