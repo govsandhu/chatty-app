@@ -10,18 +10,7 @@ class App extends Component {
     this.state = {
        // optional. if currentUser is not defined, it means the user is Anonymous
       currentUser: {name: 'Bob'},
-      messages: [
-        {
-          id: 1,
-          username: 'Bob',
-          content: 'Has anyone seen my marbles?',
-        },
-        {
-          id: 2,
-          username: 'Anonymous',
-          content: 'No, I think you lost them. You lost your marbles Bob. You lost them for good.'
-        }
-      ],
+      messages: [],
       webSocket: null
     }
     this.sendMessage = this.sendMessage.bind(this);
