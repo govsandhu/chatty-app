@@ -14,7 +14,7 @@ checkCurrentUser () {
     )
   } else {
     return (
-      <input className="chatbar-username" placeholder="Annoymous" />
+      <input className="chatbar-username" placeholder="Your Name (Optional)" />
     )
   }
 }

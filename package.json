@@ -45,7 +45,13 @@
     "webpack-dev-server": "2.3.0"
   },
   "dependencies": {
+    "express": "4.17.1",
     "react": "15.4.2",
-    "react-dom": "15.4.2"
+    "react-dom": "15.4.2",
+    "ws": "7.0.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.1",
+    "utf-8-validate": "^5.0.2"
   }
 }
