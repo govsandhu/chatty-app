@@ -6,24 +6,32 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
+  
     this.state = {
        // optional. if currentUser is not defined, it means the user is Anonymous
-      currentUser: {name: 'Bob'},
+      currentUser: 'Anonymous',
       messages: [],
       webSocket: null
     }
     this.sendMessage = this.sendMessage.bind(this);
+    this.updateUserName = this.updateUserName.bind(this);
   }
 
   sendMessage(message) {
     const newMessage = {
       type: 'message',
-      username: this.state.currentUser.name,
+      username: this.state.currentUser,
       content: message.content
     };
     this.state.webSocket.send(JSON.stringify(newMessage));
   }
+
+  updateUserName(input) {
+    this.setState({currentUser: input})
+    
+  }
+
+
 
   componentDidMount() {
     const webSocket = new WebSocket('ws://localhost:3001')
@@ -31,6 +39,12 @@ class App extends Component {
       console.log('Connected to server')
     }
     this.setState({webSocket})
+
+    webSocket.onmessage = (event) => {
+      const receiveMessage = JSON.parse(event.data)
+      const messages = this.state.messages.concat(receiveMessage) 
+      this.setState({messages: messages})
+    }  
 
     
 
@@ -62,7 +76,7 @@ class App extends Component {
           </a>
         </nav>
         <MessageList messages={this.state.messages}/>
-        <ChatBar currentUser={this.state.currentUser} newMessage={this.sendMessage} />
+        <ChatBar currentUser={this.state.currentUser} newMessage={this.sendMessage} updateUserName={ this.updateUserName } />
       </div>
     );
   }
