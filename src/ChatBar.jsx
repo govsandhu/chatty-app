@@ -29,6 +29,9 @@ changeUserName(event) {
   } else {
     userNameInput = event.target.value; 
   }
+  // const userChangeObj = {
+  //   type: 
+  // }
   this.props.updateUserName(userNameInput)
 }
 
@@ -36,6 +39,7 @@ changeUserName(event) {
 getMessageContent (event) {
   if (event.key === 'Enter') {
     const newMessageObj = {
+      type: 'message',
       content: event.target.value,
       username: this.props.currentUser
     }

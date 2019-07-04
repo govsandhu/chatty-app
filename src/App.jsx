@@ -17,18 +17,14 @@ class App extends Component {
     this.updateUserName = this.updateUserName.bind(this);
   }
 
+  // Sending new message to the server
   sendMessage(message) {
-    const newMessage = {
-      type: 'message',
-      username: this.state.currentUser,
-      content: message.content
-    };
-    this.state.webSocket.send(JSON.stringify(newMessage));
+    this.state.webSocket.send(JSON.stringify(message));
   }
 
+  
   updateUserName(input) {
     this.setState({currentUser: input})
-    
   }
 
 
