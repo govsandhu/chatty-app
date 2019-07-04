@@ -29,11 +29,16 @@ class ChatBar extends Component {
     }
   }
 
-  //Once the enter key is pressed within the username field, the username state is updated
+  //Once the user leaves the username field, the username state is updated
   changeUserName(event) {
     let userNameInput;
     let userChangeObj = {};
-    if (event.target.value === '') {
+
+    if (this.props.currentUser === 'Anonymous' && event.target.value === '') {
+      return;
+    } else if (this.props.currentUser === event.target.value) {
+      return;
+    } else if (event.target.value === '') {
       userNameInput = 'Anonymous';
     } else {
       userNameInput = event.target.value;
@@ -57,6 +62,7 @@ class ChatBar extends Component {
         content: event.target.value,
         username: this.props.currentUser
       };
+
       this.props.newMessage(newMessageObj);
       event.target.value = '';
     }
