@@ -24,7 +24,9 @@ class App extends Component {
 
   
   updateUserName(input) {
-    this.setState({currentUser: input})
+    this.setState(input, () => {
+    this.state.webSocket.send(JSON.stringify(this.state));
+    })
   }
 
 
