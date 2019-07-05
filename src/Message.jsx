@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Message extends Component {
   displayMessageByType() {
     let message;
+    let color = this.props.color;
 
     switch (this.props.type) {
       case 'incomingNotification':
@@ -12,7 +13,9 @@ class Message extends Component {
       case 'incomingMessage':
         message = (
           <div className="message">
-            <span className="message-username">{this.props.userName}</span>
+            <span className="message-username" style={{ color: color }}>
+              {this.props.userName}
+            </span>
             <span className="message-content">{this.props.content}</span>
           </div>
         );
@@ -22,7 +25,9 @@ class Message extends Component {
         message = (
           <div>
             <div className="message">
-              <span className="message-username">{this.props.userName}</span>
+              <span className="message-username" style={{ color: color }}>
+                {this.props.userName}
+              </span>
             </div>
             <div className="image">
               <img className="message-image" src={this.props.content} />

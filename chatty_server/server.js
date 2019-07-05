@@ -2,6 +2,7 @@ const express = require('express');
 const WebSocket = require('ws');
 const SocketServer = WebSocket.Server;
 const uuidv4 = require('uuid/v4');
+const randomColor = require('randomcolor');
 
 // Set the port to 3001
 const PORT = 3001;
@@ -29,9 +30,11 @@ const broadcastMessage = function(data) {
 // When a client connects they are assigned a socket, represented by
 // the ws parameter in the callback.
 wss.on('connection', ws => {
-  let connectedUsers = { connectedUsers: wss.clients.size };
   console.log('Client connected');
 
+  let userColor = randomColor();
+
+  let connectedUsers = { connectedUsers: wss.clients.size };
   broadcastMessage(connectedUsers);
 
   ws.on('message', function incoming(data) {
@@ -42,9 +45,11 @@ wss.on('connection', ws => {
         break;
       case 'postMessage':
         messageObj.type = 'incomingMessage';
+        messageObj.color = userColor;
         break;
       case 'postImage':
-        messageObj.type = 'incomingImage'
+        messageObj.type = 'incomingImage';
+        messageObj.color = userColor;
     }
     broadcastMessage(messageObj);
   });

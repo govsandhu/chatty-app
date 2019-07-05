@@ -9,12 +9,13 @@ class App extends Component {
     this.state = {
       // optional. if currentUser is not defined, it means the user is Anonymous
       currentUser: 'Anonymous',
-      messages: [ {
-        id: 0,
-        type: 'incomingNotification',
-        content: 'Welcome to Chatty! What\'s on your mind?'
-        
-      }],
+      messages: [
+        {
+          id: 0,
+          type: 'incomingNotification',
+          content: 'Welcome to Chatty! What\'s on your mind?'
+        }
+      ],
       webSocket: null
     };
     this.sendMessage = this.sendMessage.bind(this);

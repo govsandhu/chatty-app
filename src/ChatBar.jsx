@@ -22,7 +22,7 @@ class ChatBar extends Component {
       return (
         <input
           className="chatbar-username"
-          placeholder="Set an optional username & hit TAB"
+          placeholder="(Optional) Set username & hit TAB"
           onBlur={this.changeUserName}
         />
       );
