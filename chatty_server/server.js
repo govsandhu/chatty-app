@@ -43,6 +43,8 @@ wss.on('connection', ws => {
       case 'postMessage':
         messageObj.type = 'incomingMessage';
         break;
+      case 'postImage':
+        messageObj.type = 'incomingImage'
     }
     broadcastMessage(messageObj);
   });

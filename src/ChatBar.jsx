@@ -22,7 +22,7 @@ class ChatBar extends Component {
       return (
         <input
           className="chatbar-username"
-          placeholder="Your Name (Optional)"
+          placeholder="Set an optional username & hit TAB"
           onBlur={this.changeUserName}
         />
       );
@@ -56,15 +56,28 @@ class ChatBar extends Component {
 
   //If enter key is pressed within message field, creates an object with the new state and passes it to the app.
   getMessageContent(event) {
-    if (event.key === 'Enter') {
-      const newMessageObj = {
-        type: 'postMessage',
-        content: event.target.value,
-        username: this.props.currentUser
-      };
+    const validateURL = new RegExp('(https:?//)?(www.)?.+.(png|jpe?g|gif)');
 
-      this.props.newMessage(newMessageObj);
-      event.target.value = '';
+    if (event.key === 'Enter') {
+      if (event.target.value === '') {
+        return;
+      } else if (validateURL.test(event.target.value)) {
+        const imageMessageObj = {
+          type: 'postImage',
+          content: event.target.value,
+          username: this.props.currentUser
+        };
+        this.props.newMessage(imageMessageObj);
+        event.target.value = '';
+      } else {
+        const newMessageObj = {
+          type: 'postMessage',
+          content: event.target.value,
+          username: this.props.currentUser
+        };
+        this.props.newMessage(newMessageObj);
+        event.target.value = '';
+      }
     }
   }
 
@@ -74,7 +87,7 @@ class ChatBar extends Component {
         {this.checkCurrentUser()}
         <input
           className="chatbar-message"
-          placeholder="Type a message and hit ENTER"
+          placeholder="Drop a message or an image URL here & hit ENTER!"
           onKeyPress={this.getMessageContent}
         />
       </footer>

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
+@import url("https://fonts.googleapis.com/css?family=Corben");
+
 
 h1 {
   color: tomato;
@@ -14,8 +16,9 @@ body {
 }
 
 .chatbar {
-  background: tomato;
+  background: dodgerblue;
   border-top: 1px solid black;
+  border-radius: 4px;
   bottom: 0;
   display: flex;
   left: 0;
@@ -28,6 +31,7 @@ body {
 .chatbar-username {
   border: 1px solid black;
   display: block;
+  border-radius: 4px;
   height: 40px;
   line-height: 40px;
   margin: 5px;
@@ -68,9 +72,22 @@ body {
   font-weight: 700;
 }
 
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.message-image {
+  max-width: 70%;
+  max-height: 70%;
+}
+
 .navbar {
-  background: tomato;
+  background: dodgerblue;
   border-bottom: 1px solid black;
+  border-radius: 4px;
   height: 60px;
   left: 0;
   padding: 0 10px;
@@ -80,21 +97,25 @@ body {
 }
 
 .navbar-brand {
-  color: inherit;
+  color: white;
+  font-family: 'Corben', Georgia, Times, serif;
   display: block;
   float: left;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 40px;
   height: 60px;
+  text-align: center;
   line-height: 60px;
   padding: 0 10px;
   text-decoration: none;
 }
 
 .navbar p {
+  color:white;
+  font-family: 'Corben', Georgia, Times, serif;
   float: right;
   font-size: 15px;
   text-align: center;
-  height: 60px;
-    line-height: 60px
+  height: 30px;
+  line-height: 30px;
 }

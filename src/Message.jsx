@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Message extends Component {
-  // may be relevant once we begin changing the state
-  // constructor(props) {
-  //   super(props);
-  // }
   displayMessageByType() {
     let message;
 
@@ -21,6 +17,18 @@ class Message extends Component {
           </div>
         );
         break;
+
+      case 'incomingImage':
+        message = (
+          <div>
+            <div className="message">
+              <span className="message-username">{this.props.userName}</span>
+            </div>
+            <div className="image">
+              <img className="message-image" src={this.props.content} />
+            </div>
+          </div>
+        );
     }
     return message;
   }
