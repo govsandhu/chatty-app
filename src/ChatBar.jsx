@@ -8,7 +8,7 @@ class ChatBar extends Component {
     this.changeUserName = this.changeUserName.bind(this);
   }
 
-  // Check if a username is Annoymous. If not, set username input to Your Name (Optional)
+  // Check if a username is Annoymous.
   checkCurrentUser() {
     if (this.props.currentUser !== 'Anonymous') {
       return (

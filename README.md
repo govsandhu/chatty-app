@@ -22,7 +22,7 @@ npm start
 npm install
 npm start
 ```
-4. open http://localhost:3000 in your web browser
+4. Open http://localhost:3000 in your web browser
 
 
 ### Dependencies
@@ -43,4 +43,4 @@ npm start
 * webpack-dev-server
 * react
 * react-dom
-* randomColor
+* randomcolor (https://www.npmjs.com/package/randomcolor)

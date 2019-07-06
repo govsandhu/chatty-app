@@ -37,6 +37,7 @@ class App extends Component {
     webSocket.onopen = function() {
       console.log('Connected to server');
     };
+
     this.setState({ webSocket });
 
     webSocket.onmessage = event => {

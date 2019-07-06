@@ -18,6 +18,7 @@ const server = express()
 // Create the WebSockets server
 const wss = new SocketServer({ server });
 
+// Broadcast message helper function
 const broadcastMessage = function(data) {
   data.id = uuidv4();
   wss.clients.forEach(function each(client) {
@@ -26,6 +27,7 @@ const broadcastMessage = function(data) {
     }
   });
 };
+
 // Set up a callback that will run when a client connects to the server
 // When a client connects they are assigned a socket, represented by
 // the ws parameter in the callback.

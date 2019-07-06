@@ -25,8 +25,8 @@ class MessageList extends Component {
       <main className="messages">
         {messages}
         <div
-          ref={el => {
-            this.messagesEnd = el;
+          ref={element => {
+            this.messagesEnd = element;
           }}
         />
       </main>
