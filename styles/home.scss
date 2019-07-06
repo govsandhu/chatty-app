@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One&display=swap");
 
 h1 {
   color: tomato;
@@ -10,7 +9,7 @@ h1 {
 body {
   background: white;
   color: black;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   margin: 70px 0;
 }
@@ -49,12 +48,16 @@ body {
 .message {
   display: flex;
   padding: 5px;
+  margin: 5px 0px;
+  word-wrap: break-word;
 }
 
 .message.system {
   font-style: italic;
   padding: 5px 20px;
   color: royalblue;
+  justify-content: center;
+  margin: 5px 0px;
 }
 
 .message-content,
@@ -95,28 +98,30 @@ body {
   position: fixed;
   right: 0;
   top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .navbar-brand {
   color: white;
-  font-family: 'Fredoka One', cursive;;
-  display: block;
-  float: left;
+  font-family: "Fredoka One", cursive;
+  grid-column-start: 1;
   font-weight: 900;
   font-size: 40px;
   height: 60px;
-  text-align: center;
+  text-align: left;
   line-height: 60px;
   padding: 0 10px;
   text-decoration: underline;
 }
 
 .navbar p {
-  color:white;
-  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-family: "Fredoka One", cursive;
   float: right;
   font-size: 15px;
-  text-align: center;
+  text-align: end;
   height: 30px;
   line-height: 30px;
+  grid-column-start: 3;
 }

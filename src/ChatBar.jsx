@@ -56,7 +56,7 @@ class ChatBar extends Component {
 
   //If enter key is pressed within message field, creates an object with the new state and passes it to the app.
   getMessageContent(event) {
-    const validateURL = new RegExp('(https:?//)?(www.)?.+.(png|jpe?g|gif)');
+    const validateURL = new RegExp(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/);
 
     if (event.key === 'Enter') {
       if (event.target.value === '') {
