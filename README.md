@@ -1,7 +1,7 @@
 ## Chatty App
-=====================
+===============
 
-Chatty App is a lightweight real time chat application built using React, Websockets, Sass, and NodeJS.
+Chatty App is a lightweight, real time chat application built using React, Websockets, Sass, and NodeJS.
 
 ![gif-1](/documents/chattyapp.gif)
 
